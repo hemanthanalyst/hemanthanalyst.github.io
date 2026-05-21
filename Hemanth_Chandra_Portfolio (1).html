@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemanth Chandra — Data Analyst | BI Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold2:#E8C97A;--gold3:#F5E2A8;
+  --bg:#060609;--bg2:#0D0D14;--bg3:#12121C;
+  --surface:#16161F;--surface2:#1C1C28;
+  --text:#F0EEE8;--text2:#A8A49C;--text3:#605C54;
+  --cyan:#4ECDC4;--cyan2:#2BB5AC;
+  --border:rgba(201,168,76,0.15);--border2:rgba(201,168,76,0.3);
+  scroll-behavior:smooth;
+}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.6}
+::selection{background:rgba(201,168,76,0.3);color:#fff}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(6,6,9,0.75);border-bottom:1px solid var(--border);transition:all .3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;color:var(--gold);text-decoration:none}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;letter-spacing:.06em;font-weight:500;transition:color .2s;text-transform:uppercase}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#060609;font-family:'Syne',sans-serif;font-weight:700;font-size:.8rem;padding:.6rem 1.5rem;border-radius:2px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,168,76,.35)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding:8rem 2rem 4rem}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%)}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(78,205,196,.07) 0%,transparent 70%);bottom:0;right:-100px}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:.9;animation:fadeUp .8s both}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(3.5rem,7vw,7rem);font-weight:800;line-height:1;letter-spacing:-.02em;margin-bottom:1rem;animation:fadeUp .8s .1s both}
+.hero-name span{background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-family:'DM Sans',sans-serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:300;color:var(--text2);margin-bottom:2.5rem;letter-spacing:.02em;animation:fadeUp .8s .2s both}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:.5rem 1.2rem;border-radius:30px;margin-bottom:3rem;animation:fadeUp .8s .3s both}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero-btns{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .4s both}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#060609;font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;padding:1rem 2.5rem;border-radius:2px;text-decoration:none;letter-spacing:.05em;transition:all .25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.4)}
+.btn-secondary{border:1px solid var(--border2);color:var(--text);font-family:'Syne',sans-serif;font-weight:600;font-size:.9rem;padding:1rem 2.5rem;border-radius:2px;text-decoration:none;letter-spacing:.05em;transition:all .25s}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:5rem;max-width:600px;width:100%;animation:fadeUp .8s .6s both}
+.hero-stat{background:var(--bg2);padding:1.5rem 2rem;text-align:center}
+.stat-number{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--gold);display:block}
+.stat-label{font-size:.75rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+
+/* SECTIONS */
+section{padding:6rem 0}
+.container{max-width:1200px;margin:0 auto;padding:0 3rem}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;opacity:.8}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;margin-bottom:1.5rem}
+.section-title em{font-style:normal;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.divider{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:3rem}
+
+/* ABOUT */
+#about .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-text p{color:var(--text2);line-height:1.9;margin-bottom:1.5rem;font-size:1.05rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:.4rem 1rem;border:1px solid var(--border2);color:var(--gold);border-radius:1px;letter-spacing:.05em}
+.about-cards{display:grid;gap:1rem}
+.about-card{background:var(--surface);border:1px solid var(--border);padding:1.5rem 2rem;position:relative;overflow:hidden;transition:all .3s}
+.about-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2))}
+.about-card:hover{border-color:var(--border2);transform:translateX(4px)}
+.about-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.5rem;color:var(--text)}
+.about-card p{color:var(--text2);font-size:.9rem;line-height:1.7}
+
+/* EXPERIENCE */
+#experience{background:var(--bg2)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),rgba(201,168,76,.1))}
+.timeline-item{position:relative;margin-bottom:3.5rem;padding-left:2.5rem;opacity:0;transform:translateY(20px);transition:all .6s}
+.timeline-item.visible{opacity:1;transform:translateY(0)}
+.timeline-dot{position:absolute;left:-2.4rem;top:.4rem;width:12px;height:12px;border:2px solid var(--gold);background:var(--bg2);border-radius:50%;transition:all .3s}
+.timeline-item:hover .timeline-dot{background:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.5)}
+.exp-card{background:var(--surface);border:1px solid var(--border);padding:2rem 2.5rem;transition:all .3s}
+.exp-card:hover{border-color:var(--border2);background:var(--surface2)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.2rem;flex-wrap:wrap;gap:1rem}
+.exp-company{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--gold)}
+.exp-role{font-family:'DM Sans',sans-serif;font-weight:500;color:var(--text2);margin-top:.2rem}
+.exp-meta{text-align:right}
+.exp-date{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--gold);opacity:.7;letter-spacing:.05em}
+.exp-location{font-size:.8rem;color:var(--text3);margin-top:.3rem}
+.exp-bullets{list-style:none;margin-top:1rem}
+.exp-bullets li{color:var(--text2);font-size:.92rem;padding:.4rem 0 .4rem 1.2rem;position:relative;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.03)}
+.exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:.7rem;top:.6rem}
+.exp-bullets li:last-child{border-bottom:none}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.skill-group{background:var(--surface);border:1px solid var(--border);padding:2rem}
+.skill-group-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+.skill-bars{display:flex;flex-direction:column;gap:.9rem}
+.skill-bar-item{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.skill-name{font-size:.85rem;color:var(--text2);width:120px;flex-shrink:0}
+.skill-track{flex:1;height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
+.skill-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:.3rem .8rem;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.15);color:var(--gold2);border-radius:1px;letter-spacing:.03em}
+
+/* PROJECTS */
+#projects{background:var(--bg2)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:2rem}
+.project-card{background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:all .3s;position:relative}
+.project-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.project-top{padding:2rem 2.5rem 1.5rem}
+.project-type{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;margin-bottom:.8rem}
+.project-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:.8rem;color:var(--text)}
+.project-subtitle{color:var(--text2);font-size:.9rem;line-height:1.7;margin-bottom:1.5rem}
+.project-findings{background:rgba(201,168,76,.04);border-left:2px solid var(--gold);padding:1rem 1.5rem;margin:0 2.5rem 1.5rem}
+.project-findings h5{font-family:'Syne',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.project-findings ul{list-style:none}
+.project-findings li{font-size:.85rem;color:var(--text2);padding:.25rem 0 .25rem 1rem;position:relative}
+.project-findings li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:.75rem}
+.project-tech{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:.5rem}
+
+/* DASHBOARD GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.dash-card{background:var(--surface);border:1px solid var(--border);padding:1.5rem;transition:all .3s;overflow:hidden}
+.dash-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.dash-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)}
+.dash-badge{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:.25rem .7rem;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.2);color:var(--cyan);border-radius:1px}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1.5rem}
+.kpi{background:var(--bg2);padding:.8rem;text-align:center}
+.kpi-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--gold);display:block}
+.kpi-label{font-size:.68rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-top:.2rem}
+.mini-chart{height:60px;display:flex;align-items:flex-end;gap:4px}
+.bar{flex:1;background:linear-gradient(180deg,var(--gold),rgba(201,168,76,.2));border-radius:1px 1px 0 0;min-height:4px}
+
+/* HIGHLIGHTS */
+#highlights{background:linear-gradient(135deg,rgba(201,168,76,.05) 0%,var(--bg2) 50%,rgba(78,205,196,.03) 100%)}
+.highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.highlight-card{background:var(--surface);border:1px solid var(--border);padding:2rem;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.highlight-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.07),transparent);opacity:0;transition:opacity .3s}
+.highlight-card:hover{border-color:var(--border2);transform:translateY(-4px)}
+.highlight-card:hover::after{opacity:1}
+.highlight-icon{font-size:1.8rem;margin-bottom:1rem}
+.highlight-number{font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;color:var(--gold);line-height:1}
+.highlight-unit{font-size:1.2rem;color:var(--gold2)}
+.highlight-desc{font-size:.85rem;color:var(--text2);margin-top:.5rem;line-height:1.5}
+
+/* CONTACT */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:5rem;align-items:start}
+.contact-text p{color:var(--text2);line-height:1.9;margin-bottom:2rem;font-size:1.05rem}
+.contact-links{display:flex;flex-direction:column;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:all .25s}
+.contact-link:hover{border-color:var(--border2);color:var(--gold);transform:translateX(4px)}
+.contact-link-icon{font-size:1.2rem}
+.contact-link-label{font-family:'Syne',sans-serif;font-weight:600;font-size:.9rem}
+.contact-link-sub{font-size:.8rem;color:var(--text3);margin-top:.1rem}
+.contact-info{background:var(--surface);border:1px solid var(--border);padding:2.5rem}
+.info-row{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+.info-row:last-child{border-bottom:none}
+.info-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);width:90px}
+.info-val{font-size:.9rem;color:var(--text2)}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text3);letter-spacing:.08em}
+.footer-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--gold)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .container{padding:0 1.5rem}
+  section{padding:4rem 0}
+  #about .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .projects-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr 1fr}
+}
+
+/* ===================== AVATAR SYSTEM ===================== */
+#avatar-shell{
+  position:fixed;
+  bottom:2rem;
+  right:2rem;
+  z-index:900;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:.75rem;
+  pointer-events:none;
+  transition:opacity .6s, transform .6s;
+}
+#avatar-shell.hidden{opacity:0;transform:translateY(20px) scale(.95)}
+
+#avatar-frame{
+  width:200px;
+  height:240px;
+  border-radius:16px 16px 8px 8px;
+  overflow:hidden;
+  border:1px solid rgba(201,168,76,.25);
+  background:linear-gradient(160deg,#0e0e1a 0%,#161622 100%);
+  box-shadow:0 0 0 1px rgba(201,168,76,.08), 0 24px 60px rgba(0,0,0,.7), 0 0 80px rgba(201,168,76,.05);
+  position:relative;
+  pointer-events:all;
+  cursor:pointer;
+}
+#avatar-canvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+/* shimmer rim */
+#avatar-frame::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:16px 16px 8px 8px;
+  padding:1px;
+  background:linear-gradient(160deg,rgba(201,168,76,.35),rgba(78,205,196,.15),rgba(201,168,76,.05));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  z-index:2;
+}
+/* speaking glow ring */
+#avatar-frame.speaking::after{
+  content:'';
+  position:absolute;
+  inset:-3px;
+  border-radius:18px 18px 10px 10px;
+  background:transparent;
+  border:2px solid var(--gold);
+  opacity:.45;
+  animation:speakRing 1.8s ease-in-out infinite;
+  pointer-events:none;
+  z-index:3;
+}
+@keyframes speakRing{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:.6;transform:scale(1.015)}}
+
+/* pill context label that floats above avatar */
+#avatar-context{
+  background:rgba(6,6,9,.88);
+  border:1px solid rgba(201,168,76,.2);
+  backdrop-filter:blur(12px);
+  border-radius:6px;
+  padding:.45rem 1rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;
+  letter-spacing:.1em;
+  color:var(--gold);
+  text-transform:uppercase;
+  white-space:nowrap;
+  pointer-events:none;
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity .4s, transform .4s;
+}
+#avatar-context.show{opacity:1;transform:translateY(0)}
+
+/* mute toggle — unobtrusive dot in corner of frame */
+#avatar-mute{
+  position:absolute;
+  bottom:8px;
+  right:8px;
+  width:22px;height:22px;
+  border-radius:50%;
+  background:rgba(6,6,9,.7);
+  border:1px solid rgba(201,168,76,.2);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  z-index:10;
+  pointer-events:all;
+  transition:background .2s;
+}
+#avatar-mute:hover{background:rgba(201,168,76,.15)}
+#avatar-mute svg{width:11px;height:11px;fill:none;stroke:var(--gold2);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#avatar-mute.muted svg .wave1,
+#avatar-mute.muted svg .wave2{opacity:0}
+
+@media(max-width:900px){
+  #avatar-frame{width:140px;height:168px}
+  #avatar-shell{bottom:1rem;right:1rem}
+}
+/* ========================================================= */
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">HC</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:hemanthanalyst1@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+
+  <p class="hero-eyebrow">Minneapolis, MN · Open for Immediate Opportunities</p>
+  <h1 class="hero-name">Hemanth<br><span>Chandra</span></h1>
+  <p class="hero-title">Data Analyst · BI Analyst · Analytics Consultant</p>
+  <div class="hero-badge">Available Now — Remote · Hybrid · On-site · Relocation</div>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-primary">View My Work</a>
+    <a href="mailto:hemanthanalyst1@gmail.com" class="btn-secondary">Get In Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-number">6+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Enterprise Companies</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-number">10+</span>
+      <span class="stat-label">BI Dashboards</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Turning complex data into <em>clear decisions</em></h2>
+        <div class="divider"></div>
+        <p>Data Analyst and BI Analyst with 6+ years of experience turning complex enterprise datasets into actionable business insights using SQL, Python, Power BI, and Tableau across Finance, Operations, and Payroll domains.</p>
+        <p>Proven track record designing scalable BI dashboards, automating reporting workflows, and delivering KPI analytics that drive data-driven decisions for enterprise leadership teams at companies like Novartis and Capital One.</p>
+        <p>Hands-on experience with cloud analytics platforms including AWS, Azure, and Google BigQuery, with a strong focus on reporting, data quality, and business intelligence.</p>
+        <div class="about-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Snowflake</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">dbt</span>
+          <span class="tag">BigQuery</span>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="about-cards">
+          <div class="about-card">
+            <h4>Enterprise BI & Dashboards</h4>
+            <p>Designed and maintained dashboards in Power BI and Tableau tracking workforce, compensation, and financial metrics for senior leadership across Fortune 500 organizations.</p>
+          </div>
+          <div class="about-card">
+            <h4>Cloud Data Engineering</h4>
+            <p>Built and optimized ETL pipelines using Azure Data Factory and Snowflake, contributing to data model design and migrated reporting environments on Azure Synapse Analytics.</p>
+          </div>
+          <div class="about-card">
+            <h4>Reporting Automation</h4>
+            <p>Automated recurring reporting workflows using Python and Power Query, eliminating 30+ hours of manual effort per month and significantly cutting turnaround time.</p>
+          </div>
+          <div class="about-card">
+            <h4>Data Governance & Quality</h4>
+            <p>Implemented data quality validation and reconciliation processes, improving downstream data accuracy by 25% and ensuring compliance with governance standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label fade-in">Career Timeline</p>
+    <h2 class="section-title fade-in">Professional <em>Experience</em></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Novartis</div>
+              <div class="exp-role">Data Analyst</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Mar 2024 – Present</div>
+              <div class="exp-location">East Hanover, New Jersey</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Designed and maintained enterprise analytics dashboards in Power BI and Tableau tracking workforce, compensation, operational, and financial metrics for business stakeholders and senior leadership across the organization.</li>
+            <li>Developed complex SQL queries and Python scripts using Pandas and NumPy to extract, clean, and transform large enterprise datasets from SQL Server and cloud sources, supporting cross-functional reporting for 20,000+ records.</li>
+            <li>Built and optimized ETL pipelines using Azure Data Factory to ingest and transform data from multiple business systems into Azure Synapse Analytics, improving reporting freshness by 40%.</li>
+            <li>Authored advanced Power BI reports with DAX measures, calculated columns, and Power BI Dataflows for Finance, Operations, and business leadership — reducing ad-hoc reporting requests by 35%.</li>
+            <li>Implemented data quality validation and reconciliation processes using SQL and Python, improving downstream data accuracy by 25%.</li>
+            <li>Automated recurring reporting workflows using Python and Power Query, eliminating over 30 hours of manual effort per month.</li>
+            <li>Collaborated with data engineering teams on Snowflake cloud data warehouse initiatives, contributing to data model design, ETL testing, and UAT for migrated reporting environments.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Capital One</div>
+              <div class="exp-role">Data Analyst</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Oct 2022 – Mar 2024</div>
+              <div class="exp-location">McLean, Virginia</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed analytics dashboards in Power BI and Tableau providing insights into workforce demographics, operational trends, compensation benchmarking, and performance reporting for leadership teams.</li>
+            <li>Wrote optimized SQL queries in SQL Server and PostgreSQL using CTEs, window functions, and subqueries to extract and aggregate large-scale datasets, improving query performance by over 30%.</li>
+            <li>Built Python-based data pipelines using Pandas and NumPy to automate data extraction, transformation, and loading from legacy systems into centralized reporting repositories.</li>
+            <li>Utilized BigQuery for ad-hoc exploratory data analysis of large operational datasets, surfacing trends in performance and benchmarking that informed strategic business decisions.</li>
+            <li>Created statistical analysis models in Python and Advanced Excel to identify distribution patterns and forecast planning scenarios.</li>
+            <li>Documented data definitions, reporting logic, and pipeline architecture in Confluence, reducing analyst onboarding time by approximately 20%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Tata Consultancy Services</div>
+              <div class="exp-role">Data Analyst</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Mar 2021 – Jul 2022</div>
+              <div class="exp-location">Hyderabad, India</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed 10+ Power BI dashboards using SQL and DAX to support operational and leadership reporting on business performance, workforce trends, and compensation analysis across multiple business functions.</li>
+            <li>Performed exploratory data analysis using Python with Pandas, Matplotlib, and Seaborn to surface statistical trends in business metrics and present data-driven findings to operations and leadership teams.</li>
+            <li>Designed Advanced Excel models using XLOOKUP, Index-Match, and Power Query to support business reporting and benchmarking analysis, improving reporting turnaround time by 25%.</li>
+            <li>Supported data governance initiatives including data quality checks, metadata documentation, and master data management to improve data reliability across analytics pipelines.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">W3 Soft Tech</div>
+              <div class="exp-role">Junior Data Analyst</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Jan 2020 – Mar 2021</div>
+              <div class="exp-location">Hyderabad, India</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Built Power BI and Tableau dashboards tracking operational KPIs including hiring trends, workforce metrics, and performance indicators, providing leadership with consistent weekly reporting visibility.</li>
+            <li>Wrote optimized SQL queries and developed Advanced Excel reports with Pivot Tables and Power Query to generate structured analytics for business reporting across multiple operational teams.</li>
+            <li>Assisted in building Python scripts using Pandas to automate repetitive data preparation tasks, cutting manual processing time by approximately 15 hours per month.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label fade-in">Technical Stack</p>
+    <h2 class="section-title fade-in">Skills &amp; <em>Expertise</em></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="skills-grid">
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Programming &amp; Query</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item"><span class="skill-name">SQL</span><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">Python</span><div class="skill-track"><div class="skill-fill" data-width="88"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">Pandas</span><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">NumPy</span><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">Matplotlib</span><div class="skill-track"><div class="skill-fill" data-width="82"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">BI &amp; Visualization</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item"><span class="skill-name">Power BI</span><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">Tableau</span><div class="skill-track"><div class="skill-fill" data-width="88"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">DAX</span><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">Looker</span><div class="skill-track"><div class="skill-fill" data-width="75"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">KPI Reporting</span><div class="skill-track"><div class="skill-fill" data-width="92"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Cloud &amp; Data Engineering</div>
+        <div class="skill-chips">
+          <span class="chip">AWS S3</span>
+          <span class="chip">AWS Glue</span>
+          <span class="chip">AWS Athena</span>
+          <span class="chip">Azure Data Factory</span>
+          <span class="chip">Azure Synapse</span>
+          <span class="chip">BigQuery</span>
+          <span class="chip">Snowflake</span>
+          <span class="chip">dbt</span>
+          <span class="chip">ETL / ELT</span>
+          <span class="chip">Fivetran</span>
+          <span class="chip">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Databases</div>
+        <div class="skill-bars">
+          <div class="skill-bar-item"><span class="skill-name">SQL Server</span><div class="skill-track"><div class="skill-fill" data-width="92"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">PostgreSQL</span><div class="skill-track"><div class="skill-fill" data-width="88"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">MySQL</span><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
+          <div class="skill-bar-item"><span class="skill-name">Star Schema</span><div class="skill-track"><div class="skill-fill" data-width="88"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Analytics</div>
+        <div class="skill-chips">
+          <span class="chip">Exploratory Data Analysis</span>
+          <span class="chip">Statistical Analysis</span>
+          <span class="chip">Data Cleaning</span>
+          <span class="chip">Root Cause Analysis</span>
+          <span class="chip">Data Governance</span>
+          <span class="chip">Data Lineage</span>
+          <span class="chip">Reconciliation</span>
+          <span class="chip">Master Data Mgmt</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Tools &amp; Workflow</div>
+        <div class="skill-chips">
+          <span class="chip">Advanced Excel</span>
+          <span class="chip">Power Query</span>
+          <span class="chip">Pivot Tables</span>
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">Jira</span>
+          <span class="chip">Agile Scrum</span>
+          <span class="chip">Confluence</span>
+          <span class="chip">ServiceNow</span>
+          <span class="chip">Sprint Planning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label fade-in">Portfolio</p>
+    <h2 class="section-title fade-in">Featured <em>Projects</em></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <div class="project-type">SQL · Workforce Analytics</div>
+          <div class="project-title">Employee Attrition Analysis</div>
+          <div class="project-subtitle">End-to-end SQL case study analyzing employee turnover drivers across 5 departments to surface at-risk profiles and support proactive retention strategy for business leadership.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem">
+            <div style="background:var(--bg);padding:1rem;border:1px solid var(--border)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem">Dataset</div>
+              <div style="font-size:.88rem;color:var(--text2)">50 employee records · 5 departments</div>
+            </div>
+            <div style="background:var(--bg);padding:1rem;border:1px solid var(--border)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem">Platform</div>
+              <div style="font-size:.88rem;color:var(--text2)">PostgreSQL · SQL Server</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-findings">
+          <h5>Key Findings</h5>
+          <ul>
+            <li>Early tenure employees (0–2 yrs) account for majority of departures</li>
+            <li>Overtime is a strong attrition predictor — higher rates among overtime employees</li>
+            <li>Salary under $60K shows highest attrition risk band</li>
+            <li>Sales department leads all departments in attrition rate</li>
+            <li>Performance rating 2 employees overrepresented in attrition data</li>
+          </ul>
+        </div>
+        <div class="project-tech">
+          <span class="chip">CTEs</span>
+          <span class="chip">Window Functions</span>
+          <span class="chip">CASE Logic</span>
+          <span class="chip">Subqueries</span>
+          <span class="chip">Risk Scoring</span>
+          <span class="chip">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <div class="project-type">Python · EDA · Workforce Planning</div>
+          <div class="project-title">Workforce Planning EDA</div>
+          <div class="project-subtitle">Exploratory data analysis using Python to surface workforce trends supporting headcount planning, compensation benchmarking, and retention strategy for business leadership.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem">
+            <div style="background:var(--bg);padding:1rem;border:1px solid var(--border)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem">Libraries</div>
+              <div style="font-size:.88rem;color:var(--text2)">Pandas · NumPy · Matplotlib · Seaborn</div>
+            </div>
+            <div style="background:var(--bg);padding:1rem;border:1px solid var(--border)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem">Output</div>
+              <div style="font-size:.88rem;color:var(--text2)">Visual charts · Statistical summary</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-findings">
+          <h5>Analysis Scope</h5>
+          <ul>
+            <li>Attrition distribution overview — pie and bar charts by department</li>
+            <li>Salary distribution and compensation benchmarking analysis</li>
+            <li>Tenure band breakdown to identify early-exit patterns</li>
+            <li>Performance rating correlation with attrition and compensation</li>
+            <li>Statistical summaries for headcount planning recommendations</li>
+          </ul>
+        </div>
+        <div class="project-tech">
+          <span class="chip">Python</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span>
+          <span class="chip">Seaborn</span>
+          <span class="chip">EDA</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <p class="section-label fade-in">Dashboard Showcase</p>
+    <h2 class="section-title fade-in">Analytics <em>Gallery</em></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="gallery-grid">
+
+      <div class="dash-card fade-in">
+        <div class="dash-header">
+          <div class="dash-title">Workforce Operations</div>
+          <div class="dash-badge">Power BI</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><span class="kpi-val">20K+</span><span class="kpi-label">Records</span></div>
+          <div class="kpi"><span class="kpi-val">35%</span><span class="kpi-label">Ad-hoc ↓</span></div>
+          <div class="kpi"><span class="kpi-val">40%</span><span class="kpi-label">Freshness ↑</span></div>
+        </div>
+        <div class="mini-chart">
+          <div class="bar" style="height:35%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:45%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:58%"></div><div class="bar" style="height:75%"></div><div class="bar" style="height:70%"></div><div class="bar" style="height:88%"></div><div class="bar" style="height:82%"></div><div class="bar" style="height:95%"></div>
+        </div>
+      </div>
+
+      <div class="dash-card fade-in">
+        <div class="dash-header">
+          <div class="dash-title">Finance &amp; Compensation</div>
+          <div class="dash-badge">DAX · Power BI</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><span class="kpi-val">25%</span><span class="kpi-label">Accuracy ↑</span></div>
+          <div class="kpi"><span class="kpi-val">30h+</span><span class="kpi-label">Saved/mo</span></div>
+          <div class="kpi"><span class="kpi-val">10+</span><span class="kpi-label">Dashboards</span></div>
+        </div>
+        <div class="mini-chart">
+          <div class="bar" style="height:60%"></div><div class="bar" style="height:45%"></div><div class="bar" style="height:70%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:80%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:85%"></div><div class="bar" style="height:78%"></div>
+        </div>
+      </div>
+
+      <div class="dash-card fade-in">
+        <div class="dash-header">
+          <div class="dash-title">Executive KPI Reporting</div>
+          <div class="dash-badge">Tableau</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><span class="kpi-val">30%</span><span class="kpi-label">Query Speed ↑</span></div>
+          <div class="kpi"><span class="kpi-val">20%</span><span class="kpi-label">Onboard ↓</span></div>
+          <div class="kpi"><span class="kpi-val">25%</span><span class="kpi-label">Turnaround ↑</span></div>
+        </div>
+        <div class="mini-chart">
+          <div class="bar" style="height:40%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:50%"></div><div class="bar" style="height:70%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:80%"></div><div class="bar" style="height:75%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:85%"></div><div class="bar" style="height:100%"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="container">
+    <p class="section-label fade-in">Impact</p>
+    <h2 class="section-title fade-in">Business <em>Highlights</em></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="highlights-grid">
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon">⚡</div>
+        <div class="highlight-number">40<span class="highlight-unit">%</span></div>
+        <div class="highlight-desc">Improved reporting freshness at Novartis via Azure Data Factory ETL optimization</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-number">35<span class="highlight-unit">%</span></div>
+        <div class="highlight-desc">Reduction in ad-hoc reporting requests through self-service Power BI Dataflows</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon">🔍</div>
+        <div class="highlight-number">30<span class="highlight-unit">%</span></div>
+        <div class="highlight-desc">Query performance improvement via SQL CTEs, window functions, and optimization at Capital One</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon">✅</div>
+        <div class="highlight-number">25<span class="highlight-unit">%</span></div>
+        <div class="highlight-desc">Data accuracy improvement through SQL/Python validation and reconciliation processes</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon">🤖</div>
+        <div class="highlight-number">30<span class="highlight-unit">hrs</span></div>
+        <div class="highlight-desc">Monthly manual effort eliminated through Python and Power Query reporting automation</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon">📚</div>
+        <div class="highlight-number">20<span class="highlight-unit">%</span></div>
+        <div class="highlight-desc">Reduction in analyst onboarding time via Confluence documentation at Capital One</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label fade-in">Let's Connect</p>
+    <h2 class="section-title fade-in">Open for <em>Opportunities</em></h2>
+    <div class="divider fade-in"></div>
+
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="contact-text">
+          <p>Available immediately for Data Analyst, BI Analyst, and Analytics Consultant roles. Open to contract and full-time opportunities across remote, hybrid, and on-site arrangements — with willingness to relocate anywhere in the United States.</p>
+          <p>Let's talk about how I can bring 6+ years of enterprise analytics experience to your team.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:hemanthanalyst1@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-sub">hemanthanalyst1@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/hemanthanalyst1" target="_blank" class="contact-link">
+            <span class="contact-link-icon">🔗</span>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-sub">linkedin.com/in/hemanthanalyst1</div>
+            </div>
+          </a>
+          <a href="tel:+15077821430" class="contact-link">
+            <span class="contact-link-icon">📞</span>
+            <div>
+              <div class="contact-link-label">Phone</div>
+              <div class="contact-link-sub">+1 (507) 782-1430</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-info fade-in">
+        <div class="info-row">
+          <span class="info-label">Location</span>
+          <span class="info-val">Minneapolis, MN</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Work Type</span>
+          <span class="info-val">Remote · Hybrid · On-site</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Relocation</span>
+          <span class="info-val">Anywhere in the US</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Experience</span>
+          <span class="info-val">6+ Years Data Analytics</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Roles</span>
+          <span class="info-val">Data Analyst · BI Analyst · Analytics Consultant</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Education</span>
+          <span class="info-val">MS — IT &amp; Management, Concordia University</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Cert</span>
+          <span class="info-val">Power BI PL-300 — In Progress</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2025 Hemanth Chandra · All rights reserved</span>
+  <span class="footer-name">Data Analyst · Minneapolis, MN</span>
+</footer>
+
+<!-- =================== AVATAR SHELL =================== -->
+<div id="avatar-shell">
+  <div id="avatar-context"></div>
+  <div id="avatar-frame">
+    <canvas id="avatar-canvas"></canvas>
+    <div id="avatar-mute" title="Toggle voice">
+      <svg viewBox="0 0 16 16">
+        <path d="M8 2v12M5 4.5C3.5 5.5 2.5 6.7 2.5 8s1 2.5 2.5 3.5"/>
+        <path class="wave1" d="M11 4.5C12.5 5.5 13.5 6.7 13.5 8s-1 2.5-2.5 3.5"/>
+        <path class="wave2" d="M11 4.5C12.5 5.5 13.5 6.7 13.5 8s-1 2.5-2.5 3.5" opacity=".4"/>
+      </svg>
+    </div>
+  </div>
+</div>
+<!-- ===================================================== -->
+
+<script>
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+      if (el.target.classList.contains('timeline-item')) {
+        el.target.classList.add('visible');
+      }
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
+
+// Skill bar animation
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+        const w = bar.getAttribute('data-width');
+        setTimeout(() => { bar.style.width = w + '%'; }, 200);
+      });
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.skill-group').forEach(g => skillObserver.observe(g));
+
+// Smooth nav background on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.background = window.scrollY > 60
+    ? 'rgba(6,6,9,0.95)'
+    : 'rgba(6,6,9,0.75)';
+});
+
+// Counter animation for highlights
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target.querySelector('.highlight-number');
+      if (!el) return;
+      const text = el.textContent;
+      const num = parseInt(text);
+      const unit = el.querySelector('.highlight-unit')?.textContent || '';
+      if (isNaN(num)) return;
+      let start = 0;
+      const step = num / 40;
+      const interval = setInterval(() => {
+        start = Math.min(start + step, num);
+        el.innerHTML = Math.round(start) + '<span class="highlight-unit">' + unit + '</span>';
+        if (start >= num) clearInterval(interval);
+      }, 30);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.highlight-card').forEach(c => counterObserver.observe(c));
+
+// ============================================================
+// PREMIUM AVATAR ENGINE — Canvas-rendered half-body presenter
+// Section-aware narration · Procedural lip sync · Idle animation
+// ============================================================
+(function(){
+'use strict';
+
+// ── Section narration scripts ──────────────────────────────
+const SCRIPTS = {
+  hero: "Hi there. I'm Hemanth Chandra, a Data Analyst and BI Analyst with over six years of enterprise analytics experience. I specialise in SQL, Python, Power BI, and Tableau — turning complex datasets into decisions that move businesses forward. I'm currently based in Minneapolis and open for immediate contract opportunities, remote, hybrid, or on-site, anywhere in the United States.",
+  about: "With six-plus years of hands-on experience, I've built analytics solutions across Finance, Operations, and Workforce domains. My strengths span scalable BI dashboard design, automated reporting workflows, and KPI analytics that give leadership teams the clarity they need. I bring a business-impact mindset to every dataset I touch.",
+  experience: "My career spans four enterprise organisations. Currently at Novartis, I'm delivering Power BI and Tableau dashboards for twenty-thousand-plus employee datasets and driving a forty-percent improvement in reporting freshness through Azure Data Factory pipelines. Before that, at Capital One, I improved SQL query performance by thirty percent and built end-to-end Python data pipelines from legacy systems. At Tata Consultancy Services I delivered over ten Power BI dashboards and at W3 Soft Tech I built the foundation of my BI and reporting expertise.",
+  skills: "My technical stack covers the full analytics lifecycle. On the query and programming side: advanced SQL — CTEs, window functions, stored procedures — and Python with Pandas, NumPy, Matplotlib, and Seaborn. For visualisation I work daily in Power BI with DAX and Dataflows, and in Tableau. Cloud platforms include AWS, Azure Synapse, and Google BigQuery. I also work with Snowflake, dbt, and Azure Data Factory for data engineering and ETL.",
+  projects: "My two featured projects demonstrate both depth and breadth. The Employee Attrition SQL case study identifies turnover drivers — linking early tenure, overtime, and low salary bands to attrition risk — using CTEs, window functions, and risk scoring in PostgreSQL. The Workforce Planning EDA uses Python with Pandas, Matplotlib, and Seaborn to surface compensation benchmarks and headcount trends that directly inform retention strategy for business leadership.",
+  gallery: "Across my career I've delivered dashboards that move the needle — thirty-plus hours of monthly manual effort eliminated, thirty-five percent reduction in ad-hoc reporting requests, and a twenty-five percent improvement in data accuracy. These aren't vanity metrics — they're business outcomes that executives cite in strategic planning sessions.",
+  highlights: "The numbers tell the story: forty percent improvement in reporting freshness, thirty percent faster SQL query performance, thirty hours saved per month through automation, and twenty-five percent more accurate data reaching downstream teams. Each of these outcomes came from combining technical depth with stakeholder-focused delivery.",
+  contact: "If you're building a data team that needs someone who can go from raw data to boardroom-ready insight, let's talk. I'm open for immediate placement — contract or full-time, remote or on-site anywhere in the US. Reach me directly at hemanthanalyst1 at gmail dot com or connect on LinkedIn."
+};
+
+const LABELS = {
+  hero:'Introduction', about:'About Me', experience:'Career Timeline',
+  skills:'Technical Skills', projects:'Portfolio', gallery:'Dashboards',
+  highlights:'Impact', contact:'Let\'s Connect'
+};
+
+// ── State ──────────────────────────────────────────────────
+let currentSection = 'hero';
+let isSpeaking = false;
+let isMuted = false;
+let utterance = null;
+let spokenSections = new Set();
+let animFrame;
+
+// Procedural face state
+const face = {
+  // mouth
+  mouthOpen: 0, mouthTarget: 0,
+  mouthPhase: 0,
+  // eyes
+  blink: 0, blinkTimer: 0, nextBlink: 120,
+  eyeX: 0, eyeY: 0, eyeTargetX: 0, eyeTargetY: 0,
+  eyeWander: 0,
+  // head
+  headTilt: 0, headTiltTarget: 0,
+  headBob: 0, headBobPhase: 0,
+  // body
+  breathPhase: 0,
+  // shoulder / idle sway
+  swayPhase: 0,
+  // speaking energy
+  speakEnergy: 0, speakTarget: 0,
+  tick: 0
+};
+
+// ── Canvas setup ───────────────────────────────────────────
+const shell   = document.getElementById('avatar-shell');
+const frame   = document.getElementById('avatar-frame');
+const canvas  = document.getElementById('avatar-canvas');
+const muteBtn = document.getElementById('avatar-mute');
+const ctxLabel= document.getElementById('avatar-context');
+
+const DPR = Math.min(window.devicePixelRatio || 1, 2);
+function resizeCanvas(){
+  const W = frame.clientWidth, H = frame.clientHeight;
+  canvas.width  = W * DPR;
+  canvas.height = H * DPR;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+}
+resizeCanvas();
+
+const ctx = canvas.getContext('2d');
+
+// ── Colour palette ─────────────────────────────────────────
+const C = {
+  bg1:'#0a0a12', bg2:'#111119',
+  suit1:'#1a1a28', suit2:'#141420', suit3:'#0f0f1c',
+  shirt:'#e8e4dc', shirtShadow:'#c8c4bb',
+  skin:'#c8956c', skinShadow:'#a87450', skinHighlight:'#e0b48a',
+  hair:'#1a0f08', hairHigh:'#2a1a10',
+  eye:'#1a1008', iris:'#5c3d1e', irisHigh:'#8a6040', pupil:'#0a0804',
+  eyeWhite:'#f0ede8',
+  lip:'#b07060', lipDark:'#8a5040',
+  gold:'#C9A84C', gold2:'#E8C97A',
+  collar:'#d8d4cc',
+  lapel:'#232330',
+  tie1:'#C9A84C', tie2:'#a08030',
+};
+
+// ── Draw engine ────────────────────────────────────────────
+function lerp(a,b,t){return a+(b-a)*t}
+function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v))}
+function easeOut(t){return 1-(1-t)*(1-t)}
+
+function drawAvatar(){
+  const W = canvas.width, H = canvas.height;
+  const cx = W/2;
+
+  // scales
+  const s = W/200; // base scale factor (canvas is 200px logical)
+
+  ctx.clearRect(0,0,W,H);
+
+  // ── Background gradient ──
+  const bg = ctx.createRadialGradient(cx, H*.4, 10*s, cx, H*.4, H*.85);
+  bg.addColorStop(0,'#131320');
+  bg.addColorStop(1,'#060609');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0,0,W,H);
+
+  // subtle floor reflection line
+  ctx.strokeStyle = 'rgba(201,168,76,0.06)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0,H*.88); ctx.lineTo(W,H*.88); ctx.stroke();
+
+  // body breathing offset
+  const breathY = Math.sin(face.breathPhase) * 1.5 * s;
+  const swayX   = Math.sin(face.swayPhase)   * 1.2 * s;
+  const headBobY= Math.sin(face.headBobPhase) * 1.0 * s;
+  const tilt    = face.headTilt * 0.04; // radians
+
+  ctx.save();
+  ctx.translate(cx + swayX, breathY);
+
+  // ── TORSO / SUIT ──────────────────────────────────────────
+  // Jacket body
+  ctx.save();
+  const jacketTop = H * 0.62;
+  const jacketGrad = ctx.createLinearGradient(cx-60*s,jacketTop, cx+60*s,H);
+  jacketGrad.addColorStop(0, C.suit1);
+  jacketGrad.addColorStop(.5, C.suit2);
+  jacketGrad.addColorStop(1, C.suit3);
+
+  // left panel
+  ctx.beginPath();
+  ctx.moveTo(cx-65*s, H);
+  ctx.lineTo(cx-65*s, jacketTop+8*s);
+  ctx.quadraticCurveTo(cx-55*s, jacketTop, cx-10*s, jacketTop-2*s);
+  ctx.lineTo(cx+2*s,  jacketTop+18*s);
+  ctx.lineTo(cx-10*s, H);
+  ctx.closePath();
+  ctx.fillStyle = jacketGrad;
+  ctx.fill();
+
+  // right panel
+  ctx.beginPath();
+  ctx.moveTo(cx+65*s, H);
+  ctx.lineTo(cx+65*s, jacketTop+8*s);
+  ctx.quadraticCurveTo(cx+55*s, jacketTop, cx+10*s, jacketTop-2*s);
+  ctx.lineTo(cx-2*s,  jacketTop+18*s);
+  ctx.lineTo(cx+10*s, H);
+  ctx.closePath();
+  ctx.fillStyle = jacketGrad;
+  ctx.fill();
+
+  // lapel left
+  ctx.beginPath();
+  ctx.moveTo(cx-10*s, jacketTop-2*s);
+  ctx.lineTo(cx-28*s, jacketTop+12*s);
+  ctx.lineTo(cx-2*s,  jacketTop+28*s);
+  ctx.lineTo(cx,      jacketTop+20*s);
+  ctx.closePath();
+  ctx.fillStyle = C.lapel;
+  ctx.fill();
+
+  // lapel right
+  ctx.beginPath();
+  ctx.moveTo(cx+10*s, jacketTop-2*s);
+  ctx.lineTo(cx+28*s, jacketTop+12*s);
+  ctx.lineTo(cx+2*s,  jacketTop+28*s);
+  ctx.lineTo(cx,      jacketTop+20*s);
+  ctx.closePath();
+  ctx.fillStyle = C.lapel;
+  ctx.fill();
+
+  // shirt / collar visible strip
+  ctx.beginPath();
+  ctx.moveTo(cx-10*s, jacketTop-2*s);
+  ctx.lineTo(cx+10*s, jacketTop-2*s);
+  ctx.lineTo(cx+2*s,  jacketTop+28*s);
+  ctx.lineTo(cx-2*s,  jacketTop+28*s);
+  ctx.closePath();
+  ctx.fillStyle = C.shirt;
+  ctx.fill();
+
+  // tie
+  const tieGrad = ctx.createLinearGradient(cx-4*s,jacketTop,cx+4*s,jacketTop+40*s);
+  tieGrad.addColorStop(0,C.tie1); tieGrad.addColorStop(1,C.tie2);
+  ctx.beginPath();
+  ctx.moveTo(cx-3*s, jacketTop+4*s);
+  ctx.lineTo(cx+3*s, jacketTop+4*s);
+  ctx.lineTo(cx+1.5*s, jacketTop+38*s);
+  ctx.lineTo(cx-1.5*s, jacketTop+38*s);
+  ctx.closePath();
+  ctx.fillStyle = tieGrad;
+  ctx.fill();
+  // tie knot
+  ctx.beginPath();
+  ctx.ellipse(cx, jacketTop+6*s, 3.5*s,2.5*s,0,0,Math.PI*2);
+  ctx.fillStyle = C.gold2;
+  ctx.fill();
+
+  // shoulders
+  const shoulderGrad = ctx.createLinearGradient(cx,jacketTop-8*s,cx,jacketTop+10*s);
+  shoulderGrad.addColorStop(0,'#252535'); shoulderGrad.addColorStop(1,C.suit1);
+  ctx.beginPath();
+  ctx.ellipse(cx, jacketTop+2*s, 70*s, 18*s, 0, Math.PI, 0);
+  ctx.fillStyle = shoulderGrad;
+  ctx.fill();
+
+  ctx.restore();
+
+  // ── NECK ─────────────────────────────────────────────────
+  const neckBaseY = H * 0.595;
+  const neckTopY  = H * 0.495;
+  const neckGrad  = ctx.createLinearGradient(cx-10*s,neckTopY, cx+12*s,neckBaseY);
+  neckGrad.addColorStop(0, C.skinHighlight);
+  neckGrad.addColorStop(.5, C.skin);
+  neckGrad.addColorStop(1, C.skinShadow);
+  ctx.beginPath();
+  ctx.moveTo(cx-10*s, neckBaseY);
+  ctx.lineTo(cx-8*s,  neckTopY);
+  ctx.lineTo(cx+8*s,  neckTopY);
+  ctx.lineTo(cx+10*s, neckBaseY);
+  ctx.closePath();
+  ctx.fillStyle = neckGrad;
+  ctx.fill();
+
+  // ── HEAD (with tilt + headbob) ────────────────────────────
+  ctx.save();
+  ctx.translate(cx, neckTopY + headBobY);
+  ctx.rotate(tilt);
+
+  const faceW = 52 * s;
+  const faceH = 62 * s;
+  const fcx = 0, fcy = -faceH * 0.42;
+
+  // skull / hair back
+  ctx.beginPath();
+  ctx.ellipse(fcx, fcy - 2*s, faceW*.58, faceH*.52, 0, 0, Math.PI*2);
+  ctx.fillStyle = C.hair;
+  ctx.fill();
+
+  // face shape
+  const faceGrad = ctx.createRadialGradient(fcx+8*s,fcy-8*s,2*s,fcx,fcy,faceW);
+  faceGrad.addColorStop(0, C.skinHighlight);
+  faceGrad.addColorStop(.5, C.skin);
+  faceGrad.addColorStop(1, C.skinShadow);
+  ctx.beginPath();
+  ctx.ellipse(fcx, fcy, faceW*.5, faceH*.5, 0, 0, Math.PI*2);
+  ctx.fillStyle = faceGrad;
+  ctx.fill();
+
+  // forehead
+  ctx.beginPath();
+  ctx.ellipse(fcx, fcy-faceH*.18, faceW*.48, faceH*.22, 0, Math.PI, 0);
+  ctx.fillStyle = C.skinHighlight;
+  ctx.globalAlpha = .18; ctx.fill(); ctx.globalAlpha = 1;
+
+  // ── hair top ──
+  ctx.beginPath();
+  ctx.ellipse(fcx, fcy-faceH*.38, faceW*.5, faceH*.28, 0, Math.PI, 0);
+  ctx.fillStyle = C.hair;
+  ctx.fill();
+  // hair highlight
+  const hairHG = ctx.createLinearGradient(fcx-14*s,fcy-faceH*.6,fcx+4*s,fcy-faceH*.3);
+  hairHG.addColorStop(0,C.hairHigh); hairHG.addColorStop(1,C.hair);
+  ctx.beginPath();
+  ctx.ellipse(fcx-4*s, fcy-faceH*.44, faceW*.28, faceH*.18, -0.2, Math.PI, 0);
+  ctx.fillStyle = hairHG;
+  ctx.fill();
+
+  // sideburns / ear shadows
+  ctx.beginPath();
+  ctx.ellipse(fcx-faceW*.46, fcy+2*s, 6*s, 10*s, -0.3, 0, Math.PI*2);
+  ctx.fillStyle = C.skinShadow;
+  ctx.globalAlpha=.4; ctx.fill(); ctx.globalAlpha=1;
+  ctx.beginPath();
+  ctx.ellipse(fcx+faceW*.46, fcy+2*s, 6*s, 10*s, 0.3, 0, Math.PI*2);
+  ctx.fillStyle = C.skinShadow;
+  ctx.globalAlpha=.4; ctx.fill(); ctx.globalAlpha=1;
+
+  // ── EYES ──────────────────────────────────────────────────
+  const eyeY  = fcy - faceH * .08;
+  const eyeSep= faceW * .26;
+
+  for(let side=-1;side<=1;side+=2){
+    const ex = fcx + side * eyeSep;
+    const ew = 9*s, eh = 6.5*s;
+
+    // brow
+    ctx.beginPath();
+    ctx.moveTo(ex-ew*.8, eyeY-eh*1.6);
+    ctx.quadraticCurveTo(ex, eyeY-eh*2.1, ex+ew*.8, eyeY-eh*1.5);
+    ctx.lineWidth = 2.2*s;
+    ctx.strokeStyle = C.hair;
+    ctx.lineCap='round'; ctx.stroke();
+
+    // eye white
+    ctx.beginPath();
+    ctx.ellipse(ex, eyeY, ew, eh*(1-face.blink*.9), 0, 0, Math.PI*2);
+    ctx.fillStyle = C.eyeWhite;
+    ctx.fill();
+
+    // iris
+    const irisR = 4*s;
+    const ixOff = clamp(face.eyeX,-2,2)*s;
+    const iyOff = clamp(face.eyeY,-1.5,1.5)*s;
+    const irisGrad = ctx.createRadialGradient(ex+ixOff-1*s,eyeY+iyOff-1*s,0.5*s,ex+ixOff,eyeY+iyOff,irisR);
+    irisGrad.addColorStop(0,C.irisHigh); irisGrad.addColorStop(1,C.iris);
+    ctx.beginPath();
+    ctx.ellipse(ex+ixOff, eyeY+iyOff, irisR, irisR*(1-face.blink*.95), 0, 0, Math.PI*2);
+    ctx.fillStyle = irisGrad;
+    ctx.fill();
+
+    // pupil
+    ctx.beginPath();
+    ctx.ellipse(ex+ixOff, eyeY+iyOff, 2.2*s, 2.2*s*(1-face.blink*.95), 0, 0, Math.PI*2);
+    ctx.fillStyle = C.pupil;
+    ctx.fill();
+
+    // catchlight
+    ctx.beginPath();
+    ctx.ellipse(ex+ixOff+1.5*s, eyeY+iyOff-1.5*s, 1.2*s, 1*s, 0, 0, Math.PI*2);
+    ctx.fillStyle='rgba(255,255,255,.7)';
+    ctx.fill();
+
+    // eyelid blink overlay
+    if(face.blink > 0.05){
+      ctx.beginPath();
+      ctx.ellipse(ex, eyeY, ew+.5*s, eh*(1-face.blink*.05), 0, 0, Math.PI*2);
+      ctx.fillStyle = C.skin;
+      ctx.globalAlpha = face.blink * .95;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // ── NOSE ──────────────────────────────────────────────────
+  const noseY = fcy + faceH * .12;
+  ctx.beginPath();
+  ctx.moveTo(fcx, eyeY + 5*s);
+  ctx.lineTo(fcx - 3*s, noseY + 8*s);
+  ctx.quadraticCurveTo(fcx-1*s,noseY+10*s, fcx,noseY+9*s);
+  ctx.quadraticCurveTo(fcx+1*s,noseY+10*s, fcx+3*s, noseY+8*s);
+  ctx.lineWidth = 1.5*s; ctx.strokeStyle = C.skinShadow;
+  ctx.lineCap='round'; ctx.stroke();
+  // nostrils
+  ctx.beginPath();
+  ctx.ellipse(fcx-3.5*s, noseY+9*s, 2.5*s,1.5*s, -0.3, 0, Math.PI*2);
+  ctx.fillStyle = C.skinShadow; ctx.globalAlpha=.5; ctx.fill(); ctx.globalAlpha=1;
+  ctx.beginPath();
+  ctx.ellipse(fcx+3.5*s, noseY+9*s, 2.5*s,1.5*s, 0.3, 0, Math.PI*2);
+  ctx.fillStyle = C.skinShadow; ctx.globalAlpha=.5; ctx.fill(); ctx.globalAlpha=1;
+
+  // ── MOUTH ─────────────────────────────────────────────────
+  const mouthY = fcy + faceH * .28;
+  const mOpen  = face.mouthOpen * 6 * s; // max gap
+  const mw     = 14 * s;
+
+  // upper lip
+  ctx.beginPath();
+  ctx.moveTo(fcx - mw, mouthY - mOpen*.4);
+  ctx.quadraticCurveTo(fcx-mw*.4, mouthY - 3*s - mOpen*.3, fcx, mouthY-2*s - mOpen*.2);
+  ctx.quadraticCurveTo(fcx+mw*.4, mouthY - 3*s - mOpen*.3, fcx+mw, mouthY - mOpen*.4);
+  ctx.lineWidth = 1.8*s; ctx.strokeStyle = C.lip;
+  ctx.stroke();
+  ctx.closePath();
+  ctx.fillStyle = C.lip; ctx.globalAlpha=.15; ctx.fill(); ctx.globalAlpha=1;
+
+  // lower lip / open jaw
+  if(mOpen > 0.5){
+    ctx.beginPath();
+    ctx.ellipse(fcx, mouthY+mOpen*.6, mw*.85, mOpen*.7, 0, 0, Math.PI);
+    ctx.fillStyle = '#1a0a08'; ctx.fill();
+    // teeth glint
+    ctx.beginPath();
+    ctx.ellipse(fcx, mouthY+mOpen*.15, mw*.55, mOpen*.22, 0, 0, Math.PI);
+    ctx.fillStyle = '#e8e4dc'; ctx.fill();
+  }
+  ctx.beginPath();
+  ctx.moveTo(fcx-mw, mouthY + mOpen*.5);
+  ctx.quadraticCurveTo(fcx, mouthY + 4*s + mOpen*.7, fcx+mw, mouthY + mOpen*.5);
+  ctx.lineWidth = 1.8*s; ctx.strokeStyle = C.lipDark;
+  ctx.stroke();
+
+  // ── CHEEKBONES subtle ──
+  ctx.beginPath();
+  ctx.ellipse(fcx-faceW*.3, fcy+faceH*.1, 10*s,7*s, -0.2, 0, Math.PI*2);
+  ctx.fillStyle = '#d4785c'; ctx.globalAlpha=.12; ctx.fill(); ctx.globalAlpha=1;
+  ctx.beginPath();
+  ctx.ellipse(fcx+faceW*.3, fcy+faceH*.1, 10*s,7*s, 0.2, 0, Math.PI*2);
+  ctx.fillStyle = '#d4785c'; ctx.globalAlpha=.12; ctx.fill(); ctx.globalAlpha=1;
+
+  // jaw shadow
+  const jawGrad = ctx.createLinearGradient(fcx,fcy+faceH*.25,fcx,fcy+faceH*.55);
+  jawGrad.addColorStop(0,'transparent'); jawGrad.addColorStop(1,C.skinShadow);
+  ctx.beginPath();
+  ctx.ellipse(fcx, fcy+faceH*.38, faceW*.42, faceH*.2, 0, 0, Math.PI*2);
+  ctx.fillStyle = jawGrad; ctx.globalAlpha=.25; ctx.fill(); ctx.globalAlpha=1;
+
+  ctx.restore(); // head rotation
+
+  ctx.restore(); // body translate
+
+  // ── Vignette overlay ──────────────────────────────────────
+  const vig = ctx.createRadialGradient(W/2,H/2,H*.25,W/2,H/2,H*.75);
+  vig.addColorStop(0,'transparent');
+  vig.addColorStop(1,'rgba(6,6,9,.55)');
+  ctx.fillStyle = vig;
+  ctx.fillRect(0,0,W,H);
+
+  // ── Gold accent line bottom ───────────────────────────────
+  const rimGrad = ctx.createLinearGradient(0,0,W,0);
+  rimGrad.addColorStop(0,'transparent');
+  rimGrad.addColorStop(.35,C.gold);
+  rimGrad.addColorStop(.65,C.gold);
+  rimGrad.addColorStop(1,'transparent');
+  ctx.fillStyle = rimGrad;
+  ctx.fillRect(0, H-2, W, 2);
+}
+
+// ── Animation loop ─────────────────────────────────────────
+function tick(){
+  face.tick++;
+  const t = face.tick;
+
+  // Breathing
+  face.breathPhase += 0.018;
+
+  // Body sway
+  face.swayPhase += 0.008;
+
+  // Head bob (subtle)
+  face.headBobPhase += 0.012;
+
+  // Eye wander
+  face.eyeWander += 0.007;
+  if(t % 280 === 0 || t === 1){
+    face.eyeTargetX = (Math.random()-.5) * 6;
+    face.eyeTargetY = (Math.random()-.5) * 3;
+  }
+  face.eyeX = lerp(face.eyeX, face.eyeTargetX, 0.04);
+  face.eyeY = lerp(face.eyeY, face.eyeTargetY, 0.04);
+
+  // Blinking
+  face.blinkTimer++;
+  if(face.blinkTimer >= face.nextBlink){
+    face.blink = 1;
+    face.blinkTimer = 0;
+    face.nextBlink = 90 + Math.random()*160;
+    setTimeout(()=>{ face.blink = 0; }, 90 + Math.random()*50);
+    if(isSpeaking) setTimeout(()=>{ face.blink = 0; }, 60);
+  }
+  face.blink = lerp(face.blink, 0, 0.28);
+
+  // Head tilt — gentle idle drift
+  if(t % 320 === 0){
+    face.headTiltTarget = (Math.random()-.5) * 1.4;
+  }
+  face.headTilt = lerp(face.headTilt, face.headTiltTarget, 0.015);
+
+  // Lip sync — noise-driven phoneme emulation
+  if(isSpeaking){
+    face.speakTarget = 1;
+    // rhythmic jaw movement at ~4–6 phonemes/sec
+    const phonemeFreq = 0.09 + Math.sin(t*0.03)*0.02;
+    const raw = Math.sin(t * phonemeFreq * Math.PI * 2)
+              * 0.5 + 0.5
+              + Math.sin(t * phonemeFreq * 1.7 * Math.PI * 2) * 0.25;
+    // add organic turbulence
+    const noise = Math.sin(t*0.37)*0.15 + Math.sin(t*0.19)*0.1;
+    face.mouthTarget = clamp((raw + noise) * 0.85, 0, 1);
+    // occasional wider open for vowels
+    if(Math.sin(t*0.11) > 0.75) face.mouthTarget = clamp(face.mouthTarget * 1.4, 0, 1);
+  } else {
+    face.speakTarget = 0;
+    face.mouthTarget = 0;
+  }
+
+  face.speakEnergy = lerp(face.speakEnergy, face.speakTarget, 0.08);
+  face.mouthOpen   = lerp(face.mouthOpen,   face.mouthTarget, 0.18);
+
+  drawAvatar();
+  animFrame = requestAnimationFrame(tick);
+}
+
+// ── Speech system ──────────────────────────────────────────
+function speak(text){
+  if(isMuted || !text) return;
+  if(!window.speechSynthesis) return;
+  stopSpeaking();
+  utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate  = 0.92;
+  utterance.pitch = 1.0;
+  utterance.volume= 1.0;
+  // prefer a warm male voice if available
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v=>
+    /google.*uk.*male|daniel|alex|tom|james/i.test(v.name)
+  ) || voices.find(v=> v.lang==='en-US' && !v.name.match(/female|woman|samantha|karen/i))
+    || voices.find(v=> /en/i.test(v.lang));
+  if(preferred) utterance.voice = preferred;
+  utterance.onstart = ()=>{ isSpeaking = true; frame.classList.add('speaking'); };
+  utterance.onend   = ()=>{ isSpeaking = false; face.mouthTarget=0; frame.classList.remove('speaking'); };
+  utterance.onerror = ()=>{ isSpeaking = false; face.mouthTarget=0; frame.classList.remove('speaking'); };
+  window.speechSynthesis.speak(utterance);
+}
+
+function stopSpeaking(){
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+  isSpeaking = false;
+  face.mouthTarget = 0;
+  frame.classList.remove('speaking');
+}
+
+// Voices load async in some browsers
+if(window.speechSynthesis){
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
+}
+
+// ── Section detection ──────────────────────────────────────
+const SECTIONS = ['hero','about','experience','skills','projects','gallery','highlights','contact'];
+const sectionEls = {};
+SECTIONS.forEach(id => { sectionEls[id] = document.getElementById(id); });
+
+let scrollDebounce;
+function onScroll(){
+  clearTimeout(scrollDebounce);
+  scrollDebounce = setTimeout(()=>{
+    const mid = window.scrollY + window.innerHeight * 0.45;
+    let active = 'hero';
+    SECTIONS.forEach(id => {
+      const el = sectionEls[id];
+      if(!el) return;
+      if(el.offsetTop <= mid) active = id;
+    });
+    if(active !== currentSection){
+      currentSection = active;
+      onSectionChange(active);
+    }
+  }, 120);
+}
+
+function onSectionChange(id){
+  // update context label
+  const label = LABELS[id] || '';
+  ctxLabel.textContent = label;
+  ctxLabel.classList.add('show');
+  setTimeout(()=> ctxLabel.classList.remove('show'), 2800);
+
+  // narrate — each section once per session
+  if(!spokenSections.has(id) && SCRIPTS[id]){
+    spokenSections.add(id);
+    const delay = id === 'hero' ? 1800 : 800;
+    setTimeout(() => speak(SCRIPTS[id]), delay);
+  }
+}
+
+window.addEventListener('scroll', onScroll, {passive:true});
+
+// ── Mute toggle ────────────────────────────────────────────
+muteBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  isMuted = !isMuted;
+  muteBtn.classList.toggle('muted', isMuted);
+  if(isMuted) stopSpeaking();
+  else if(SCRIPTS[currentSection]){
+    spokenSections.delete(currentSection);
+    speak(SCRIPTS[currentSection]);
+  }
+});
+
+// Click avatar to replay current section
+frame.addEventListener('click', () => {
+  if(SCRIPTS[currentSection]){
+    stopSpeaking();
+    setTimeout(()=> speak(SCRIPTS[currentSection]), 300);
+  }
+});
+
+// ── Visibility / hide on small scroll position for nav clarity ──
+const scrollObserver = new IntersectionObserver(entries=>{
+  // always keep visible — just track
+}, {threshold:0});
+
+// ── Boot ──────────────────────────────────────────────────
+resizeCanvas();
+window.addEventListener('resize', () => { resizeCanvas(); });
+tick();
+// Fire hero narration after small delay so voices are loaded
+setTimeout(() => {
+  currentSection = 'hero';
+  onSectionChange('hero');
+}, 2200);
+
+})(); // end avatar IIFE
+</script>
+</body>
+</html>
